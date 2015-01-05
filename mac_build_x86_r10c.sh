@@ -16,10 +16,10 @@
 # if not dynamic detect cpu, must      --disable-sse4 \ --disable-sse42 \ --disable-avx \
 ######################################################
 
-NDK=/data/dev_tools/android-ndk/android-ndk-r9
-PLATFORM=$NDK/platforms/android-14/arch-x86
+NDK=/data/dev_tools/android-ndk/android-ndk-r10c
+PLATFORM=$NDK/platforms/android-19/arch-x86
 #PREBUILT=$NDK/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86
-PREBUILT=$NDK/toolchains/x86-4.6/prebuilt/darwin-x86_64
+PREBUILT=$NDK/toolchains/x86-4.9/prebuilt/darwin-x86_64
 function build_one
 {
 ./configure --target-os=linux \
@@ -65,7 +65,7 @@ function build_one
 
 make clean
 make  -j4 install
-$PREBUILT/bin/i686-linux-android-ld -rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib  -soname libffmpeg_x86.so -shared -nostdlib  -Bsymbolic --whole-archive --no-undefined -o $PREFIX/libffmpeg.so libavcodec/libavcodec.a libswcale/libswcale.a libavformat/libavformat.a libavutil/libavutil.a libswresample/libswresample.a -lc -lm -lz -ldl -llog  --dynamic-linker=/system/bin/linker $PREBUILT/lib/gcc/i686-linux-android/4.6/libgcc.a
+$PREBUILT/bin/i686-linux-android-ld -rpath-link=$PLATFORM/usr/lib -L$PLATFORM/usr/lib  -soname libffmpeg_x86.so -shared -nostdlib  -Bsymbolic --whole-archive --no-undefined -o $PREFIX/libffmpeg.so libavcodec/libavcodec.a libswscale/libswscale.a libavformat/libavformat.a libavutil/libavutil.a libswresample/libswresample.a -lc -lm -lz -ldl -llog  --dynamic-linker=/system/bin/linker $PREBUILT/lib/gcc/i686-linux-android/4.9/libgcc.a
 }
 
 
