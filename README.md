@@ -3,6 +3,9 @@ FFMpegBuildScript
 
 A ffmpeg build script for Android
 
+
+If you want build for x86, you should make change like this:
+=================
 ```
 diff --git a/libavcodec/x86/mpegvideoenc.c b/libavcodec/x86/mpegvideoenc.c
 index b410511..5144f42 100644
