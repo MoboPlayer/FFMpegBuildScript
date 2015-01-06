@@ -49,3 +49,11 @@ index b410511..5144f42 100644
      }
  }
 ```
+
+##You also have to modify config.h like this:
+```
+#define HAVE_LOG2 0
+#define HAVE_LOG2F 0
+#define HAVE_LOG10F 0
+```
+
