@@ -50,10 +50,9 @@ index b410511..5144f42 100644
  }
 ```
 
-##You also have to modify config.h like this:
+##You also have to modify config.h like this when build x86 dynamic library:
 ```
 #define HAVE_LOG2 0
 #define HAVE_LOG2F 0
 #define HAVE_LOG10F 0
 ```
-
